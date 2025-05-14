@@ -24,7 +24,7 @@ contract Vault {
 
     function redeem(uint256 _amount) external {
         i_rebaseToken.burn(msg.sender, _amount);
-        (bool success, ) = payable(msg.sender).call{value: _amount}("");
+        (bool success,) = payable(msg.sender).call{value: _amount}("");
         if (!success) revert RedeemFailed();
         emit Redeem(msg.sender, _amount);
     }

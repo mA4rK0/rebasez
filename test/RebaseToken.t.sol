@@ -18,7 +18,7 @@ contract RebaseTokenTest is Test {
         rebaseToken = new RebaseToken();
         vault = new Vault(IRebaseToken(address(rebaseToken)));
         rebaseToken.grantMintAndBurnRole(address(vault));
-        (bool success, ) = payable(address(vault)).call{value: 1e18}("");
+        (bool success,) = payable(address(vault)).call{value: 1e18}("");
         vm.stopPrank();
     }
 
